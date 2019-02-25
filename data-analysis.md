@@ -22,7 +22,7 @@
   - get some sense of the data. So some easy to spot pattern can be found easily.
   - Data sets have errors.  You won't find them all but you might find some. That 212 year old man. That 9 foot tall woman.  
   - Variables can have strange distributions, outliers, etc.
-  -- Variables can be multimodal.
+    - Variables can be multimodal.
 #### 6. How can you make sure that you don’t analyze something that ends up meaningless?
   - Proper exploratory data analysis.  
 
