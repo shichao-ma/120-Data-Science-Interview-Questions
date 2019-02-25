@@ -7,23 +7,22 @@
     - hence use adjusted R^2 which adjusts for the degrees of freedom 
     - or train error metrics
 #### 3. What is the curse of dimensionality?
+  - In general, high dimension data makes many algorithm slow to run.
   - High dimensionality makes clustering hard, because having lots of dimensions means that everything is "far away" from each other.
-  - For example, to cover a fraction of the volume of the data we need to capture a very wide range for each variable as the number of variables increases
+  - To cover enough variation of the data, we need to capture a very wide range for each variable as the number of variables increases.
   - All samples are close to the edge of the sample. And this is a bad news because prediction is much more difficult near the edges of the training sample.
   - The sampling density decreases exponentially as p increases and hence the data becomes much more sparse without significantly more data. 
-  - We should conduct PCA to reduce dimensionality
 #### 4. Is more data always better?
   - Statistically,
     - It depends on the quality of your data, for example, if your data is biased, just getting more data won’t help.
     - It depends on your model. If your model suffers from high bias, getting more data won’t improve your test results beyond a point. You’d need to add more features, etc.
   - Practically,
     - Also there’s a tradeoff between having more data and the additional storage, computational power, memory it requires. Hence, always think about the cost of having more data.
-#### 5. What are advantages of plotting your data before per- forming analysis?
-  - 1) Data sets have errors.  You won't find them all but you might find some. That 212 year old man. That 9 foot tall woman.  
-
-2) Variables can have skewness, outliers etc.  Then the arithmetic mean might not be useful. Which means the standard deviation isn't useful.  
-
-3) Variables can be multimodal!  If a variable is multimodal then anything based on its mean or median is going to be suspect. 
+#### 5. What are advantages of plotting your data before performing analysis?
+  - get some sense of the data. So some easy to spot pattern can be found easily.
+  - Data sets have errors.  You won't find them all but you might find some. That 212 year old man. That 9 foot tall woman.  
+  - Variables can have strange distributions, outliers, etc.
+  -- Variables can be multimodal.
 #### 6. How can you make sure that you don’t analyze something that ends up meaningless?
   - Proper exploratory data analysis.  
 
