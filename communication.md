@@ -12,3 +12,4 @@
   - If my audience can't understand the frequentist interpretation of CI, then I'm okay if my audience understanding the "wrong" Bayesian interpretation as long as we can move the project forward.
   - [link](https://www.quora.com/What-is-a-confidence-interval-in-laymans-terms)
 #### 5. How would you explain to a group of senior executives why data is important?
+  - Group persuasion problem. Find a middle person who is not very far from me and not very far from the median and win him/ her over.
