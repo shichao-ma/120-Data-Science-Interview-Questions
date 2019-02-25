@@ -48,7 +48,6 @@
   - the output come as probabilities
   - efficient and the computation can be distributed
   - can be used as a baseline for other algorithms
-  - (-) can hardly handle categorical features
 - SVM
   - with a nonlinear kernel, can deal with problems that are not linearly separable
   - (-) slow to train, for most industry scale applications, not really efficient
@@ -65,16 +64,17 @@
 - Deep Learning
   - works well for some classification tasks (e.g. image)
   - used to squeeze something out of the problem
+  - too blackbox
 
 #### 7. What is regularization and where might it be helpful? What is an example of using regularization in a model?
-- Regularization is useful for reducing variance in the model, meaning avoiding overfitting . For example, we can use L1 regularization in Lasso regression to penalize large coefficients.
+- Regularization is useful for reducing variance in the model by introducing some bias: reduce overfitting. For example, we can use Lasso to penalize large coefficients. Used for predicitve purpose. 
 
 #### 8. Why might it be preferable to include fewer predictors over many?
 - When we add irrelevant features, it increases model's tendency to overfit because those features introduce more noise. When two variables are correlated, they might be harder to interpret in case of regression, etc.
 - curse of dimensionality
 - adding random noise makes the model more complicated but useless
 - computational cost
-- Ask someone for more details.
+- Need actionable insight when additional variables are not actionable
 
 #### 9. Given training data on tweets and their retweets, how would you predict the number of retweets of a given tweet after 7 days after only observing 2 days worth of data?
 - Build a time series model with the training data with a seven day cycle and then use that for a new data with only 2 days data.
@@ -105,14 +105,16 @@
   - Weight: weight for the edge type (comment, like, tag, etc.). Emphasis on features the company wants to promote
   - Time decay: the older the less important
 
-#### 13. How would you predict who someone may want to send a Snapchat or Gmail to?
+#### 13. How would you predict whom someone may want to send a Snapchat or Gmail to?
 - for each user, assign a score of how likely someone would send an email to
 - the rest is feature engineering:
   - number of past emails, how many responses, the last time they exchanged an email, whether the last email ends with a question mark, features about the other users, etc.
-- Ask someone for more details.
+- Is content available? If so, use the content.
 - People who someone sent emails the most in the past, conditioning on time decay.
 
 #### 14. How would you suggest to a franchise where to open a new store?
+- talk to the marketing team and listen to their intuition
+  - a place with no store: an opportunity or people there don't like us?
 - build a master dataset with local demographic information available for each location.
   - local income levels, proximity to traffic, weather, population density, proximity to other businesses
   - a reference dataset on local, regional, and national macroeconomic conditions (e.g. unemployment, inflation, prime interest rate, etc.)
@@ -130,13 +132,15 @@
 
 #### 16. Given a database of all previous alumni donations to your university, how would you predict which recent alumni are most likely to donate?
 - Based on frequency and amount of donations, graduation year, major, etc, construct a supervised regression (or binary classification) algorithm.
+- Or interview them and ask why they donate. Find common places and figure out which recent alumni have similar experiences.
+  - When you can talk to people to figure out the data generating process, do it.
 
 #### 17. You’re Uber and you want to design a heatmap to recommend to drivers where to wait for a passenger. How would you approach this?
 - Based on the past pickup location of passengers around the same time of the day, day of the week (month, year), construct
-- Ask someone for more details.
 - Based on the number of past pickups
   - account for periodicity (seasonal, monthly, weekly, daily, hourly)
   - special events (concerts, festivals, etc.) from tweets
+- Allow the driver to do some filtering
 
 #### 18. How would you build a model to predict a March Madness bracket?
 - One vector each for team A and B. Take the difference of the two vectors and use that as an input to predict the probability that team A would win by training the model. Train the models using past tournament data and make a prediction for the new tournament by running the trained model for each round of the tournament
@@ -147,3 +151,4 @@
 #### 19. You want to run a regression to predict the probability of a flight delay, but there are flights with delays of up to 12 hours that are really messing up your model. How can you address this?
 - This is equivalent to making the model more robust to outliers.
 - See Q3.
+- Unlike Q3, you are interested in these outliers. So maybe set a bar of ourliers and use a dummy to indicate "crazy" outliers.
