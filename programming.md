@@ -35,19 +35,42 @@
     FULL (OUTER) JOIN: Return all records when there is a match in either left or right table
 
 #### 10. Why might a join on a subquery be slow? How might you speed it up?
-  - Change the subquery to a join.
+  - Too many rows.
+  - Filter results using subqueries whenever possible.
+  - Put WHERE condition into JOIN ON whenever possible.
 #### 11. Describe the difference between primary keys and foreign keys in a SQL database.
   - Primary keys are columns whose value combinations must be unique in a specific table so that each row can be referenced uniquely. Foreign keys are columns that references columns (often primary keys) in other tables.
 #### 12. Given a COURSES table with columns course_id and course_name, a FACULTY table with columns faculty_id and faculty_name, and a COURSE_FACULTY table with columns faculty_id and course_id, how would you return a list of faculty who teach a course given the name of a course?
-  - select faculty_name from faculty_id c join (select faculty_id from (select course_id from COURSES where course_name=xxx) as a join COURSE_FACULTY b on a.course_id = b.course_id) d on c.faculty_id = d.faculty_id
+~~~
+SELECT 
+    faculty_name 
+FROM 
+    FACULTY AS f 
+JOIN
+    COURSE_FACULTY AS cf
+ON
+    f.faculty_id = cf.faculty_id
+JOIN
+    COURSES AS c
+ON
+    cf.course_id = c.course_id
+WHERE
+    c.course_name = 'xxx';    
+~~~
 #### 13. Given a IMPRESSIONS table with ad_id, click (an indicator that the ad was clicked), and date, write a SQL query that will tell me the click-through-rate of each ad by month.
-  - select id, average(click) from (select count(click) as click from IMPRESSIONS group by id,month(date)) group by id
+~~~
+SELECT 
+    ad_id, DATE_TRUNC('month', date) AS month, AVG(click) AS click-through-rate
+FROM 
+    IMPRESSIONS 
+GROUP BY 1, 2;
+~~~
 #### 14. Write a query that returns the name of each department and a count of the number of employees in each:  
 EMPLOYEES containing: Emp_ID (Primary key) and Emp_Name  
 EMPLOYEE_DEPT containing: Emp_ID (Foreign key) and Dept_ID (Foreign key)  
 DEPTS containing: Dept_ID (Primary key) and Dept_Name
 
-```
+~~~
 SELECT 
     a.Dept_Name, COALESCE(COUNT(b.Emp_ID), 0)
 FROM 
@@ -55,5 +78,5 @@ FROM
 LEFT JOIN 
     EMPLOYEE_DEPT AS b 
 ON a.Dept_ID = b.Dept_ID 
-GROUP BY Dept_ID
-```
+GROUP BY 1;
+~~~
