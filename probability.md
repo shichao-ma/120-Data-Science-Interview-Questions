@@ -40,7 +40,7 @@ Pr(2 girls| 1 girl) = Pr(2 girls and 1 girl)/Pr(1 girl) = Pr(2 girls)/Pr(1 girl)
 #### 17. Let’s say we play a game where I keep flipping a coin until I get heads. If the first time I get heads is on the nth coin, then I pay you 2n-1 dollars. How much would you pay me to play this game?
   - less than $3
 #### 18. You have two coins, one of which is fair and comes up heads with a probability 1/2, and the other which is biased and comes up heads with probability 3/4. You randomly pick coin and flip it twice, and get heads both times. What is the probability that you picked the fair coin?
-  - 4/13
+Pr(F|HH) = Pr(HH|F)Pr(F)/(Pr(HH|F)Pr(F) + Pr(HH|B)Pr(B)) = 4/13
 #### 19. You have a 0.1% chance of picking up a coin with both heads, and a 99.9% chance that you pick up a fair coin. You flip your coin and it comes up heads 10 times. What’s the chance that you picked up the fair coin, given the information that you observed?
   * Events: F = "picked a fair coin", T = "10 heads in a row"
   * (1) P(F|T) = P(T|F)P(F)/P(T) (Bayes formula)
