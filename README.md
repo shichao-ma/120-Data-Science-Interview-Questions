@@ -1,6 +1,6 @@
 # 120 Data Science Interview Questions
 
-Here are the answers to [120 Data Science Interview Questions](http://www.datasciencequestions.com/).
+Here are my current thoughts to [120 Data Science Interview Questions](http://www.datasciencequestions.com/).
 
 - [Communication](communication.md)
 - [Data Analysis](data-analysis.md)
