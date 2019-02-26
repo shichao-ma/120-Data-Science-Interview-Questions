@@ -1,7 +1,7 @@
 ## Programming (14 questions)
 
 #### 1. Write a function to calculate all possible assignment vectors of 2n users, where n users are assigned to group 0 (control), and n users are assigned to group 1 (treatment).
-  - Recursive programming (sol in code)
+  - DFS
 #### 2. Given a list of tweets, determine the top 10 most used hashtags.
   - Store all the hashtags in a dictionary and get the top 10 values
   - heap
