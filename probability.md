@@ -35,10 +35,10 @@ Pr(2 girls| 1 girl) = Pr(2 girls and 1 girl)/Pr(1 girl) = Pr(2 girls)/Pr(1 girl)
 #### 14. A lazy high school senior types up application and envelopes to n different colleges, but puts the applications randomly into the envelopes. What is the expected number of applications that went to the right college?
   - 1
 #### 15. Let’s say you have a very tall father. On average, what would you expect the height of his son to be? Taller, equal, or shorter? What if you had a very short father?
-  - Shorter. Regression to the mean
+  - Shorter. Regression to the mean.
 #### 16. What’s the expected number of coin flips until you get two heads in a row? What’s the expected number of coin flips until you get two tails in a row?
 #### 17. Let’s say we play a game where I keep flipping a coin until I get heads. If the first time I get heads is on the nth coin, then I pay you 2n-1 dollars. How much would you pay me to play this game?
-  - less than $3
+Depends on my risk preference.
 #### 18. You have two coins, one of which is fair and comes up heads with a probability 1/2, and the other which is biased and comes up heads with probability 3/4. You randomly pick coin and flip it twice, and get heads both times. What is the probability that you picked the fair coin?
 Pr(F|HH) = Pr(HH|F)Pr(F)/(Pr(HH|F)Pr(F) + Pr(HH|B)Pr(B)) = 4/13
 #### 19. You have a 0.1% chance of picking up a coin with both heads, and a 99.9% chance that you pick up a fair coin. You flip your coin and it comes up heads 10 times. What’s the chance that you picked up the fair coin, given the information that you observed?
