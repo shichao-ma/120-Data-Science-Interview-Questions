@@ -67,10 +67,11 @@
   - too blackbox
 
 #### 7. What is regularization and where might it be helpful? What is an example of using regularization in a model?
-- Regularization is useful for reducing variance in the model by introducing some bias: reduce overfitting. For example, we can use Lasso to penalize large coefficients. Used for predicitve purpose. 
+- Regularization is useful for reducing variance in the model by introducing some bias: reduce overfitting. For example, we can use Lasso to penalize large coefficients.
 
 #### 8. Why might it be preferable to include fewer predictors over many?
 - When we add irrelevant features, it increases model's tendency to overfit because those features introduce more noise. When two variables are correlated, they might be harder to interpret in case of regression, etc.
+  - introduce variance
 - curse of dimensionality
 - adding random noise makes the model more complicated but useless
 - computational cost
@@ -78,28 +79,34 @@
 
 #### 9. Given training data on tweets and their retweets, how would you predict the number of retweets of a given tweet after 7 days after only observing 2 days worth of data?
 - Build a time series model with the training data with a seven day cycle and then use that for a new data with only 2 days data.
-- Ask someone for more details.
-- Build a regression function to estimate the number of retweets as a function of time t
+- User/ content clustering for content based models
+  - Foe example, news are short-lived
+- Build a regression function to estimate the number of retweets as a function of time t and $x_t$
+  - may need to use a count model
 - to determine if one regression function can be built, see if there are clusters in terms of the trends in the number of retweets
 - if not, we have to add features to the regression function
 - features + # of retweets on the first and the second day -> predict the seventh day
 - https://en.wikipedia.org/wiki/Dynamic_time_warping
 
 #### 10. How could you collect and analyze data to use social media to predict the weather?
-- We can collect social media data using twitter, Facebook, instagram API’s. Then, for example, for twitter, we can construct features from each tweet, e.g. the tweeted date, number of favorites, retweets, and of course, the features created from the tweeted content itself. Then use a multi variate time series model to predict the weather.
-- Ask someone for more details.
+- Look at weather reporting agencies' social media outlets.
+- Figure out what types of people care about weather, and look at their social media.
+  - Farmers
+  - Coaches and athletes who perform ourdoor activities.
+  - Investors who invest in the above industries.
+- Content analysis, some NLP, maybe multivariate regression analysis
 
 #### 11. How would you construct a feed to show relevant content for a site that involves user interactions with items?
-- We can do so using building a recommendation engine. The easiest we can do is to show contents that are popular other users, which is still a valid strategy if for example the contents are news articles. To be more accurate, we can build a content based filtering or collaborative filtering. If there’s enough user usage data, we can try collaborative filtering and recommend contents other similar users have consumed. If there isn’t, we can recommend similar items based on vectorization of items (content based filtering).
+- We can do so by building a recommendation engine. The easiest we can do is to show contents that are popular to other users, which is still a valid strategy if for example the contents are news articles. To be more accurate, we can build a content based filtering or collaborative filtering. If there’s enough user usage data, we can try collaborative filtering and recommend contents other similar users have consumed. If there isn’t, we can recommend similar items based on vectorization of items (content based filtering).
+- user profile -> recommendation, train a supervised learning model
 
 #### 12. How would you design the people you may know feature on LinkedIn or Facebook?
-- Find strong unconnected people in weighted connection graph
-  - Define similarity as how strong the two people are connected
-  - Given a certain feature, we can calculate the similarity based on
-    - friend connections (neighbors)
-    - Check-in’s people being at the same location all the time.
-    - same college, workplace
-    - Have randomly dropped graphs test the performance of the algorithm
+- If two people share many mutual connections but are not connected directly. They may know each other or are very interested in knowing each other (need to drop the case being friends for a while and then unfriend. Don't recommend this case to people!).
+- Define similarity as how strong the two people are connected
+- Given a certain feature, we can calculate the similarity based on
+  - friend connections (neighbors)
+  - Check-in’s people being at the same location all the time.
+  - same college, workplace
 - ref. News Feed Optimization
   - Affinity score: how close the content creator and the users are
   - Weight: weight for the edge type (comment, like, tag, etc.). Emphasis on features the company wants to promote
