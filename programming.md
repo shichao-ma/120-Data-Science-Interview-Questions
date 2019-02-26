@@ -4,6 +4,7 @@
   - Recursive programming (sol in code)
 #### 2. Given a list of tweets, determine the top 10 most used hashtags.
   - Store all the hashtags in a dictionary and get the top 10 values
+  - heap
 #### 3. Program an algorithm to find the best approximate solution to the knapsack problem1 in a given time.
   - Greedy solution (add the best v/w as much as possible and move on to the next)
 #### 4. Program an algorithm to find the best approximate solution to the travelling salesman problem2 in a given time.
@@ -16,17 +17,16 @@
   - https://en.wikipedia.org/wiki/Newton's_method#Square_root_of_a_number
 #### 7. Given a list of numbers, can you return the outliers?
   - sort then select the highest and the lowest 2.5%
-#### 8. When can parallelism make your algorithms run faster?  
-When could it make your algorithms run slower?
-
-  - Ask someone for more details.
-  - compute in parallel when communication cost < computation cost
+  - compute variance and select those who fall outside of 2 or 3 sigma
+#### 8. When can parallelism make your algorithms run faster?
+  - When one job does not depend on the previous result.
+  - Communication cost < computation cost
+  - Some use cases
     - ensemble trees
     - minibatch
     - cross validation
     - forward propagation
-    - minibatch
-    - not suitable for online learning
+  - not suitable for online learning
 
 #### 9. What are the different types of joins? What are the differences between them?
   - (INNER) JOIN: Returns records that have matching values in both tables
@@ -47,4 +47,13 @@ EMPLOYEES containing: Emp_ID (Primary key) and Emp_Name
 EMPLOYEE_DEPT containing: Emp_ID (Foreign key) and Dept_ID (Foreign key)  
 DEPTS containing: Dept_ID (Primary key) and Dept_Name
 
-  - select Dept_Name, count(1) from DEPTS a right join EMPLOYEE_DEPT b on a.Dept_id = b.Dept_id group by Dept_Name
+```
+SELECT 
+    a.Dept_Name, COALESCE(COUNT(b.Emp_ID), 0)
+FROM 
+    DEPTS AS a 
+LEFT JOIN 
+    EMPLOYEE_DEPT AS b 
+ON a.Dept_ID = b.Dept_ID 
+GROUP BY Dept_ID
+```
