@@ -32,12 +32,19 @@ Pr(2 girls| 1 girl) = Pr(2 girls and 1 girl)/Pr(1 girl) = Pr(2 girls)/Pr(1 girl)
 #### 12. I write a program should print out all the numbers from 1 to 300, but prints out Fizz instead if the number is divisible by 3, Buzz instead if the number is divisible by 5, and FizzBuzz if the number is divisible by 3 and 5. What is the total number of numbers that is either Fizzed, Buzzed, or FizzBuzzed?
   - 100+60-20=140
 #### 13. On a dating site, users can select 5 out of 24 adjectives to describe themselves. A match is declared between two users if they match on at least 4 adjectives. If Alice and Bob randomly pick adjectives, what is the probability that they form a match?
-`\frac{ {24 \choose 5}*(1+5(24-5)) } {{24 \choose 5} {24 \choose 5}} = 4/1771`
+`\frac{ {24 \choose 5}*({5 \choose 5} + {5 \choose 4}{19 \choose 1}) } {{24 \choose 5} {24 \choose 5}} = 4/1771`
 #### 14. A lazy high school senior types up application and envelopes to n different colleges, but puts the applications randomly into the envelopes. What is the expected number of applications that went to the right college?
   - 1
 #### 15. Let’s say you have a very tall father. On average, what would you expect the height of his son to be? Taller, equal, or shorter? What if you had a very short father?
   - Shorter. Regression to the mean.
 #### 16. What’s the expected number of coin flips until you get two heads in a row? What’s the expected number of coin flips until you get two tails in a row?
+Let the exp number of getting two heads in a row be x. Then
+~~~
+x = (1/2)^2 * 2 # two heads
++ (1/2) * (x + 1)  # one tail
++ (1/2)^2 * (x + 2) # one head and one tail
+~~~
+So `x = 6`. Getting two tails in a row should be the same.
 #### 17. Let’s say we play a game where I keep flipping a coin until I get heads. If the first time I get heads is on the nth coin, then I pay you 2n-1 dollars. How much would you pay me to play this game?
 Depends on my risk preference.
 #### 18. You have two coins, one of which is fair and comes up heads with a probability 1/2, and the other which is biased and comes up heads with probability 3/4. You randomly pick coin and flip it twice, and get heads both times. What is the probability that you picked the fair coin?
