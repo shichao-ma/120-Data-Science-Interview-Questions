@@ -20,18 +20,19 @@ Pr(2 girls| 1 girl) = Pr(2 girls and 1 girl)/Pr(1 girl) = Pr(2 girls)/Pr(1 girl)
 #### 8. You have a group of couples that decide to have children until they have their first girl, after which they stop having children. What is the expected gender ratio of the children that are born? What is the expected number of children each couple will have?
   - gender ratio is 1:1. Expected number of children is 2. let X be the number of children until getting a female (happens with prob 1/2). this follows a geometric distribution with probability 1/2
 #### 9. How many ways can you split 12 people into 3 teams of 4?
-  - the outcome follows a multinomial distribution with n=12 and k=3. but the classes are indistinguishable
+`\frac{{12 \choose 4}{8 \choose 4}}{3!}`
 #### 10. Your hash function assigns each object to a number between 1:10, each with equal probability. With 10 objects, what is the probability of a hash collision? What is the expected number of hash collisions? What is the expected number of hashes that are unused.
+  - binomial distribution question
   - the probability of a hash collision: 1-(10!/10^10)
   - the expected number of hash collisions: 1-10*(9/10)^10
   - the expected number of hashes that are unused: 10*(9/10)^10
 #### 11. You call 2 UberX’s and 3 Lyfts. If the time that each takes to reach you is IID, what is the probability that all the Lyfts arrive first? What is the probability that all the UberX’s arrive first?
-  - Lyfts arrive first: 2!*3!/5!
-  - Ubers arrive first: same
+  - Lyfts arrive first: 2! * 3!/5!
+  - Ubers arrive first: the same, or 3! * 2!/5!
 #### 12. I write a program should print out all the numbers from 1 to 300, but prints out Fizz instead if the number is divisible by 3, Buzz instead if the number is divisible by 5, and FizzBuzz if the number is divisible by 3 and 5. What is the total number of numbers that is either Fizzed, Buzzed, or FizzBuzzed?
   - 100+60-20=140
 #### 13. On a dating site, users can select 5 out of 24 adjectives to describe themselves. A match is declared between two users if they match on at least 4 adjectives. If Alice and Bob randomly pick adjectives, what is the probability that they form a match?
-  - 24C5*(1+5(24-5))/24C5*24C5 = 4/1771
+`\frac{ {24 \choose 5}*(1+5(24-5)) } {{24 \choose 5} {24 \choose 5}} = 4/1771`
 #### 14. A lazy high school senior types up application and envelopes to n different colleges, but puts the applications randomly into the envelopes. What is the expected number of applications that went to the right college?
   - 1
 #### 15. Let’s say you have a very tall father. On average, what would you expect the height of his son to be? Taller, equal, or shorter? What if you had a very short father?
