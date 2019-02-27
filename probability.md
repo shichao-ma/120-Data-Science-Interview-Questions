@@ -22,7 +22,6 @@ Pr(2 girls| 1 girl) = Pr(2 girls and 1 girl)/Pr(1 girl) = Pr(2 girls)/Pr(1 girl)
 #### 9. How many ways can you split 12 people into 3 teams of 4?
 `\frac{{12 \choose 4}{8 \choose 4}}{3!}`
 #### 10. Your hash function assigns each object to a number between 1:10, each with equal probability. With 10 objects, what is the probability of a hash collision? What is the expected number of hash collisions? What is the expected number of hashes that are unused.
-  - binomial distribution question
   - the probability of a hash collision: 1-(10!/10^10)
   - the expected number of hash collisions: 1-10*(9/10)^10
   - the expected number of hashes that are unused: 10*(9/10)^10
